@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Kanallar";
+}
+
+<h2>Kanallar</h2>
+
+<form asp-action="CreateChannel" method="post">
+    <input type="text" name="channelName" placeholder="Yeni Kanal Adı" required />
+    <button type="submit">Kanal Yarat</button>
+</form>
+
+<ul>
+    @foreach (var channel in Model)
+    {
+        <li>
+            <a asp-action="GetMessages" asp-route-channelName="@channel">@channel</a>
+        </li>
+    }
+</ul>

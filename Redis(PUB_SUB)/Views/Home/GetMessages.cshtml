@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Mesajlar";
+}
+
+<h2>@ViewBag.ChannelName Kanalındakı Mesajlar</h2>
+
+<ul>
+    @foreach (var message in Model)
+    {
+        <li>@message</li>
+    }
+</ul>
+
+<form asp-action="PostMessage" method="post">
+    <input type="hidden" name="channelName" value="@ViewBag.ChannelName" />
+    <input type="text" name="message" placeholder="Yeni Mesaj" required />
+    <button type="submit">Göndər</button>
+</form>
